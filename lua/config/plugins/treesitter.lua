@@ -2,8 +2,11 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
+        init = function()
+            -- Setup happens after plugin is loaded
+        end,
         config = function()
-            require 'nvim-treesitter.configs'.setup {
+            require 'nvim-treesitter.config'.setup {
                 ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
                 auto_install = false,
                 highlight = {
